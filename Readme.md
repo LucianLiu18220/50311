@@ -8,7 +8,8 @@ Due to the storage limitations of the anonymous repository, we are unable to upl
 
 Below is the file directory introduction of this repository:
 
-2. `dataset`: Contains contract source code and labels from the SmartBugs dataset, as well as the Code Example provided in our paper.
+1. `bert-tiny`: An open-source model containing bert-tiny.
+2. `dataset`: Contains contract source code from the SmartBugs dataset, as well as the Code Example provided in our paper.
 3. `Step1_CFGgeneration`
    1. `SCFG_ECFG.py`: Generates nodes and edges for SCFG and ECFG, and provides visualization.
 4. `Step2_NodeEmbedding`
