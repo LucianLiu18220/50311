@@ -16,7 +16,6 @@ def set_compiler(version):
 
 
 def get_installed_versions():
-	# 调用命令行获取已安装的版本
 	result = subprocess.run(["solc-select", "versions"], capture_output=True, text=True)
 	installed_versions = re.findall(r'\d+\.\d+\.\d+', result.stdout)
 	installed_versions.sort()
