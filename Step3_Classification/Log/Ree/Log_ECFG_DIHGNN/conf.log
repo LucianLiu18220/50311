@@ -1,0 +1,830 @@
+
+current time             : 2024-08-12 04:42:19
+code path                : D:\Project\SmtCon\Classification\240806-SCcfg_graph\240812-SCcfg_graph-V12_29\SCcfg_graph_V12_29_main.py
+
+Binary Classification model training.
+*************Basic settings*************
+config                   : {
+    "logtest": false,
+    "seed": 1000,
+    "previous_dataset": false,
+    "previous_dataset_path": "",
+    "vul_ann": "Ree",
+    "vul": "reentrancy",
+    "dataset_name": "SmartBugs",
+    "dataset_split": [
+        0.7,
+        0.15,
+        0.15
+    ],
+    "previous_model": false,
+    "previous_model_path": "",
+    "max_saved_model": 10,
+    "num_labels": 2,
+    "d_node_feat": 1024,
+    "d_node_reshape": 128,
+    "d_output": 128,
+    "batch_size": 8,
+    "num_epochs": 50,
+    "wight_pen": 0.05,
+    "lr": 0.0001,
+    "optimizer": {
+        "weight_decay": 0.0001
+    },
+    "scheduler": {
+        "factor": 0.5,
+        "patience": 1,
+        "verbose": true,
+        "min_lr_rate": 1e-08
+    },
+    "criterion": {
+        "alpha": [
+            1,
+            1
+        ],
+        "gamma": 0,
+        "reduction": "sum"
+    }
+}
+dataset dir              : D:\Project\SmtCon_dataset\SmartContract\SmartBugs\Phase4\Multimodal_Fusion__reentrancy_SCcfg_graph_ExprsNode
+
+*********Model hyper-parameters*********
+training device          : [device(type='cuda', index=0)]
+optimizer                : Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 0.0001
+    maximize: False
+    weight_decay: 0.0001
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0.0001
+)
+loss function            : CrossEntropyLoss
+
+************Model structure*************
+Model(
+  (linear_1): Linear(in_features=1024, out_features=128, bias=True)
+  (ihgnn): IHGNN(
+    (customtanh): CustomTanh()
+    (linear): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (linear_2): Linear(in_features=128, out_features=2, bias=True)
+)
+Trainable params         : 147,971
+Non-trainable params     : 0
+Total params             : 147,971
+
+****************Training****************
+【Epoch: 00】
+	train set evaluation finished, time: 6.23 mins
+	test set evaluation finished, time: 1.27 mins
+	test set evaluation finished, time: 1.59 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.9734
+	alpha_list: [0.9734029769897461]
+	       Train          |         Valid          |          Test       
+	TP:    19, FP:    89  |  TP:     2, FP:    18  |  TP:     1, FP:    10
+	FN:   580, TN:   510  |  FN:   126, TN:   110  |  FN:   128, TN:   119
+	Train -- Accu: 0.4416, Prec: 0.1759, Reca: 0.0317, Spec: 0.8514, F1Sc: 0.0537
+	Valid -- Accu: 0.4375, Prec: 0.1000, Reca: 0.0156, Spec: 0.8594, F1Sc: 0.0270
+	Test  -- Accu: 0.4651, Prec: 0.0909, Reca: 0.0078, Spec: 0.9225, F1Sc: 0.0143
+	Average train Loss: 23.8119410, d_loss: 459.6493665
+	Average valid Loss: 23.7926030, d_loss: 459.3639247
+	Average test  Loss: 24.6879192, d_loss: 476.7295616
+	training finished, time: 6.26 mins
+【Epoch: 01】
+	train set evaluation finished, time: 6.17 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.59 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.9516
+	alpha_list: [0.9734029769897461, 0.9516029357910156]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:   478  |  TP:   127, FP:   107  |  TP:   129, FP:   103
+	FN:     0, TN:   121  |  FN:     1, TN:    21  |  FN:     0, TN:    26
+	Train -- Accu: 0.6010, Prec: 0.5562, Reca: 1.0000, Spec: 0.2020, F1Sc: 0.7148
+	Valid -- Accu: 0.5781, Prec: 0.5427, Reca: 0.9922, Spec: 0.1641, F1Sc: 0.7017
+	Test  -- Accu: 0.6008, Prec: 0.5560, Reca: 1.0000, Spec: 0.2016, F1Sc: 0.7147
+	Average train Loss: 0.7271266, d_loss: 3.0979824
+	Average valid Loss: 0.7281240, d_loss: 3.2281539
+	Average test  Loss: 0.7482786, d_loss: 3.2832746
+	training finished, time: 6.24 mins
+【Epoch: 02】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.32 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.9192
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906]
+	       Train          |         Valid          |          Test       
+	TP:   575, FP:   146  |  TP:   122, FP:    34  |  TP:   121, FP:    32
+	FN:    24, TN:   453  |  FN:     6, TN:    94  |  FN:     8, TN:    97
+	Train -- Accu: 0.8581, Prec: 0.7975, Reca: 0.9599, Spec: 0.7563, F1Sc: 0.8712
+	Valid -- Accu: 0.8438, Prec: 0.7821, Reca: 0.9531, Spec: 0.7344, F1Sc: 0.8592
+	Test  -- Accu: 0.8450, Prec: 0.7908, Reca: 0.9380, Spec: 0.7519, F1Sc: 0.8582
+	Average train Loss: 0.5305194, d_loss: 1.7425080
+	Average valid Loss: 0.5370777, d_loss: 1.8181367
+	Average test  Loss: 0.5555852, d_loss: 1.8581910
+	training finished, time: 6.26 mins
+【Epoch: 03】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.31 mins
+	test set evaluation finished, time: 1.56 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.7823
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138]
+	       Train          |         Valid          |          Test       
+	TP:   574, FP:   130  |  TP:   124, FP:    40  |  TP:   121, FP:    36
+	FN:    25, TN:   469  |  FN:     4, TN:    88  |  FN:     8, TN:    93
+	Train -- Accu: 0.8706, Prec: 0.8153, Reca: 0.9583, Spec: 0.7830, F1Sc: 0.8810
+	Valid -- Accu: 0.8281, Prec: 0.7561, Reca: 0.9688, Spec: 0.6875, F1Sc: 0.8493
+	Test  -- Accu: 0.8295, Prec: 0.7707, Reca: 0.9380, Spec: 0.7209, F1Sc: 0.8462
+	Average train Loss: 0.4092496, d_loss: 0.8616907
+	Average valid Loss: 0.4204212, d_loss: 0.8780389
+	Average test  Loss: 0.4417507, d_loss: 0.8818863
+	training finished, time: 6.28 mins
+【Epoch: 04】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.5872
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593]
+	       Train          |         Valid          |          Test       
+	TP:   588, FP:    59  |  TP:   126, FP:    17  |  TP:   126, FP:    19
+	FN:    11, TN:   540  |  FN:     2, TN:   111  |  FN:     3, TN:   110
+	Train -- Accu: 0.9416, Prec: 0.9088, Reca: 0.9816, Spec: 0.9015, F1Sc: 0.9438
+	Valid -- Accu: 0.9258, Prec: 0.8811, Reca: 0.9844, Spec: 0.8672, F1Sc: 0.9299
+	Test  -- Accu: 0.9147, Prec: 0.8690, Reca: 0.9767, Spec: 0.8527, F1Sc: 0.9197
+	Average train Loss: 0.2827608, d_loss: 0.9597020
+	Average valid Loss: 0.3091014, d_loss: 0.9591443
+	Average test  Loss: 0.3179851, d_loss: 0.9550360
+	training finished, time: 6.27 mins
+【Epoch: 05】
+	train set evaluation finished, time: 6.14 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.5252
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:    32  |  TP:   128, FP:    12  |  TP:   129, FP:     8
+	FN:     0, TN:   567  |  FN:     0, TN:   116  |  FN:     0, TN:   121
+	Train -- Accu: 0.9733, Prec: 0.9493, Reca: 1.0000, Spec: 0.9466, F1Sc: 0.9740
+	Valid -- Accu: 0.9531, Prec: 0.9143, Reca: 1.0000, Spec: 0.9062, F1Sc: 0.9552
+	Test  -- Accu: 0.9690, Prec: 0.9416, Reca: 1.0000, Spec: 0.9380, F1Sc: 0.9699
+	Average train Loss: 0.1460314, d_loss: 0.3879771
+	Average valid Loss: 0.1869158, d_loss: 0.3877301
+	Average test  Loss: 0.1575123, d_loss: 0.3845635
+	training finished, time: 6.24 mins
+【Epoch: 06】
+	train set evaluation finished, time: 6.21 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.59 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.4565
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:    20  |  TP:   128, FP:     8  |  TP:   129, FP:     6
+	FN:     0, TN:   579  |  FN:     0, TN:   120  |  FN:     0, TN:   123
+	Train -- Accu: 0.9833, Prec: 0.9677, Reca: 1.0000, Spec: 0.9666, F1Sc: 0.9836
+	Valid -- Accu: 0.9688, Prec: 0.9412, Reca: 1.0000, Spec: 0.9375, F1Sc: 0.9697
+	Test  -- Accu: 0.9767, Prec: 0.9556, Reca: 1.0000, Spec: 0.9535, F1Sc: 0.9773
+	Average train Loss: 0.0984276, d_loss: 0.3478212
+	Average valid Loss: 0.1450536, d_loss: 0.3498297
+	Average test  Loss: 0.1024139, d_loss: 0.3469128
+	training finished, time: 6.29 mins
+【Epoch: 07】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.59 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.4017
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:    14  |  TP:   128, FP:     5  |  TP:   129, FP:     4
+	FN:     0, TN:   585  |  FN:     0, TN:   123  |  FN:     0, TN:   125
+	Train -- Accu: 0.9883, Prec: 0.9772, Reca: 1.0000, Spec: 0.9766, F1Sc: 0.9884
+	Valid -- Accu: 0.9805, Prec: 0.9624, Reca: 1.0000, Spec: 0.9609, F1Sc: 0.9808
+	Test  -- Accu: 0.9845, Prec: 0.9699, Reca: 1.0000, Spec: 0.9690, F1Sc: 0.9847
+	Average train Loss: 0.0768271, d_loss: 0.3474868
+	Average valid Loss: 0.1244627, d_loss: 0.3477759
+	Average test  Loss: 0.0779488, d_loss: 0.3456925
+	training finished, time: 6.27 mins
+【Epoch: 08】
+	train set evaluation finished, time: 6.32 mins
+	test set evaluation finished, time: 1.32 mins
+	test set evaluation finished, time: 1.61 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.3563
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:    11  |  TP:   128, FP:     5  |  TP:   129, FP:     2
+	FN:     0, TN:   588  |  FN:     0, TN:   123  |  FN:     0, TN:   127
+	Train -- Accu: 0.9908, Prec: 0.9820, Reca: 1.0000, Spec: 0.9816, F1Sc: 0.9909
+	Valid -- Accu: 0.9805, Prec: 0.9624, Reca: 1.0000, Spec: 0.9609, F1Sc: 0.9808
+	Test  -- Accu: 0.9922, Prec: 0.9847, Reca: 1.0000, Spec: 0.9845, F1Sc: 0.9923
+	Average train Loss: 0.0640473, d_loss: 0.3510849
+	Average valid Loss: 0.1125702, d_loss: 0.3507217
+	Average test  Loss: 0.0639499, d_loss: 0.3498629
+	training finished, time: 6.28 mins
+【Epoch: 09】
+	train set evaluation finished, time: 6.16 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.60 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.3360
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:    10  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   589  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9917, Prec: 0.9836, Reca: 1.0000, Spec: 0.9833, F1Sc: 0.9917
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0658824, d_loss: 0.3753534
+	Average valid Loss: 0.1058040, d_loss: 0.3729231
+	Average test  Loss: 0.0582754, d_loss: 0.3734291
+	training finished, time: 6.33 mins
+【Epoch: 10】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.27 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.3220
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     9  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   590  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9925, Prec: 0.9852, Reca: 1.0000, Spec: 0.9850, F1Sc: 0.9925
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0620025, d_loss: 0.3903797
+	Average valid Loss: 0.0999574, d_loss: 0.3871275
+	Average test  Loss: 0.0540768, d_loss: 0.3883378
+	training finished, time: 6.27 mins
+【Epoch: 11】
+	train set evaluation finished, time: 6.20 mins
+	test set evaluation finished, time: 1.28 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2965
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     7  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   592  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9942, Prec: 0.9884, Reca: 1.0000, Spec: 0.9883, F1Sc: 0.9942
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0554461, d_loss: 0.4083181
+	Average valid Loss: 0.0946112, d_loss: 0.4055761
+	Average test  Loss: 0.0511498, d_loss: 0.4084060
+	training finished, time: 6.24 mins
+【Epoch: 12】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.31 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2908
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     5  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   594  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9958, Prec: 0.9917, Reca: 1.0000, Spec: 0.9917, F1Sc: 0.9958
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0592412, d_loss: 0.4264852
+	Average valid Loss: 0.0935591, d_loss: 0.4223635
+	Average test  Loss: 0.0514154, d_loss: 0.4279257
+	training finished, time: 6.24 mins
+【Epoch: 13】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2694
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     4  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   595  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9967, Prec: 0.9934, Reca: 1.0000, Spec: 0.9933, F1Sc: 0.9967
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0579849, d_loss: 0.4302181
+	Average valid Loss: 0.0906957, d_loss: 0.4254725
+	Average test  Loss: 0.0506697, d_loss: 0.4306431
+	training finished, time: 6.25 mins
+【Epoch: 14】
+	train set evaluation finished, time: 6.20 mins
+	test set evaluation finished, time: 1.27 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2578
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     3  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   596  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9975, Prec: 0.9950, Reca: 1.0000, Spec: 0.9950, F1Sc: 0.9975
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0368487, d_loss: 0.4119169
+	Average valid Loss: 0.0882038, d_loss: 0.4078967
+	Average test  Loss: 0.0483616, d_loss: 0.4167794
+	training finished, time: 6.29 mins
+【Epoch: 15】
+	train set evaluation finished, time: 6.16 mins
+	test set evaluation finished, time: 1.28 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2575
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     3  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   596  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9975, Prec: 0.9950, Reca: 1.0000, Spec: 0.9950, F1Sc: 0.9975
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0344234, d_loss: 0.3264306
+	Average valid Loss: 0.0832071, d_loss: 0.3290825
+	Average test  Loss: 0.0430394, d_loss: 0.3280654
+	training finished, time: 6.27 mins
+【Epoch: 16】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.32 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2449
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     2  |  TP:   128, FP:     4  |  TP:   128, FP:     1
+	FN:     0, TN:   597  |  FN:     0, TN:   124  |  FN:     1, TN:   128
+	Train -- Accu: 0.9983, Prec: 0.9967, Reca: 1.0000, Spec: 0.9967, F1Sc: 0.9983
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9922, Prec: 0.9922, Reca: 0.9922, Spec: 0.9922, F1Sc: 0.9922
+	Average train Loss: 0.0298777, d_loss: 0.2592835
+	Average valid Loss: 0.0773160, d_loss: 0.2658658
+	Average test  Loss: 0.0401996, d_loss: 0.2595282
+	training finished, time: 6.29 mins
+【Epoch: 17】
+	train set evaluation finished, time: 6.21 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2412
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   128, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     1, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9922, Prec: 0.9922, Reca: 0.9922, Spec: 0.9922, F1Sc: 0.9922
+	Average train Loss: 0.0224809, d_loss: 0.2199600
+	Average valid Loss: 0.0767780, d_loss: 0.2297715
+	Average test  Loss: 0.0363569, d_loss: 0.2207256
+	training finished, time: 6.26 mins
+【Epoch: 18】
+	train set evaluation finished, time: 6.22 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 0.0001
+	learning rate: group 1 : 0.001
+	alpha: 0.2343
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   128, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     1, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9922, Prec: 0.9922, Reca: 0.9922, Spec: 0.9922, F1Sc: 0.9922
+	Average train Loss: 0.0211021, d_loss: 0.2088697
+	Average valid Loss: 0.0781649, d_loss: 0.2224248
+	Average test  Loss: 0.0362254, d_loss: 0.2115678
+	training finished, time: 6.27 mins
+【Epoch: 19】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.59 mins
+	learning rate: group 0 : 5e-05
+	learning rate: group 1 : 0.0005
+	alpha: 0.2260
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0194431, d_loss: 0.1920404
+	Average valid Loss: 0.0771125, d_loss: 0.2050752
+	Average test  Loss: 0.0340699, d_loss: 0.1951170
+	training finished, time: 6.26 mins
+【Epoch: 20】
+	train set evaluation finished, time: 6.17 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.61 mins
+	learning rate: group 0 : 5e-05
+	learning rate: group 1 : 0.0005
+	alpha: 0.2199
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0172474, d_loss: 0.1698576
+	Average valid Loss: 0.0891656, d_loss: 0.1831736
+	Average test  Loss: 0.0347321, d_loss: 0.1726172
+	training finished, time: 6.26 mins
+【Epoch: 21】
+	train set evaluation finished, time: 6.17 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 2.5e-05
+	learning rate: group 1 : 0.00025
+	alpha: 0.2115
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0165424, d_loss: 0.1610233
+	Average valid Loss: 0.0869441, d_loss: 0.1729379
+	Average test  Loss: 0.0347835, d_loss: 0.1635492
+	training finished, time: 6.29 mins
+【Epoch: 22】
+	train set evaluation finished, time: 6.16 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 2.5e-05
+	learning rate: group 1 : 0.00025
+	alpha: 0.2090
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0156865, d_loss: 0.1531922
+	Average valid Loss: 0.0881625, d_loss: 0.1648346
+	Average test  Loss: 0.0346057, d_loss: 0.1557857
+	training finished, time: 6.31 mins
+【Epoch: 23】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.28 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 1.25e-05
+	learning rate: group 1 : 0.000125
+	alpha: 0.2058
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0152769, d_loss: 0.1484157
+	Average valid Loss: 0.0873677, d_loss: 0.1596911
+	Average test  Loss: 0.0341360, d_loss: 0.1508411
+	training finished, time: 6.26 mins
+【Epoch: 24】
+	train set evaluation finished, time: 6.23 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 1.25e-05
+	learning rate: group 1 : 0.000125
+	alpha: 0.2042
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0148667, d_loss: 0.1448554
+	Average valid Loss: 0.0869254, d_loss: 0.1560104
+	Average test  Loss: 0.0339199, d_loss: 0.1473022
+	training finished, time: 6.30 mins
+【Epoch: 25】
+	train set evaluation finished, time: 6.17 mins
+	test set evaluation finished, time: 1.31 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 6.25e-06
+	learning rate: group 1 : 6.25e-05
+	alpha: 0.2025
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0146496, d_loss: 0.1423409
+	Average valid Loss: 0.0866687, d_loss: 0.1533737
+	Average test  Loss: 0.0337291, d_loss: 0.1447389
+	training finished, time: 6.27 mins
+【Epoch: 26】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 6.25e-06
+	learning rate: group 1 : 6.25e-05
+	alpha: 0.2015
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0144199, d_loss: 0.1406867
+	Average valid Loss: 0.0852258, d_loss: 0.1517280
+	Average test  Loss: 0.0333680, d_loss: 0.1431516
+	training finished, time: 6.31 mins
+【Epoch: 27】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.28 mins
+	test set evaluation finished, time: 1.59 mins
+	learning rate: group 0 : 3.125e-06
+	learning rate: group 1 : 3.125e-05
+	alpha: 0.2007
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0143104, d_loss: 0.1393571
+	Average valid Loss: 0.0851408, d_loss: 0.1502864
+	Average test  Loss: 0.0332559, d_loss: 0.1417942
+	training finished, time: 6.26 mins
+【Epoch: 28】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.27 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 3.125e-06
+	learning rate: group 1 : 3.125e-05
+	alpha: 0.2001
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0141974, d_loss: 0.1385634
+	Average valid Loss: 0.0837545, d_loss: 0.1494872
+	Average test  Loss: 0.0330091, d_loss: 0.1409847
+	training finished, time: 6.26 mins
+【Epoch: 29】
+	train set evaluation finished, time: 6.20 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 1.5625e-06
+	learning rate: group 1 : 1.5625e-05
+	alpha: 0.1997
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0141449, d_loss: 0.1379308
+	Average valid Loss: 0.0836664, d_loss: 0.1488100
+	Average test  Loss: 0.0329578, d_loss: 0.1403427
+	training finished, time: 6.21 mins
+【Epoch: 30】
+	train set evaluation finished, time: 6.17 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 1.5625e-06
+	learning rate: group 1 : 1.5625e-05
+	alpha: 0.1995
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140959, d_loss: 0.1374981
+	Average valid Loss: 0.0829798, d_loss: 0.1485212
+	Average test  Loss: 0.0328400, d_loss: 0.1399355
+	training finished, time: 6.34 mins
+【Epoch: 31】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 7.8125e-07
+	learning rate: group 1 : 7.8125e-06
+	alpha: 0.1993
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140717, d_loss: 0.1371712
+	Average valid Loss: 0.0828835, d_loss: 0.1481655
+	Average test  Loss: 0.0328066, d_loss: 0.1396033
+	training finished, time: 6.26 mins
+【Epoch: 32】
+	train set evaluation finished, time: 6.13 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 7.8125e-07
+	learning rate: group 1 : 7.8125e-06
+	alpha: 0.1992
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140492, d_loss: 0.1369620
+	Average valid Loss: 0.0826519, d_loss: 0.1480746
+	Average test  Loss: 0.0327612, d_loss: 0.1394561
+	training finished, time: 6.27 mins
+【Epoch: 33】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.61 mins
+	learning rate: group 0 : 3.90625e-07
+	learning rate: group 1 : 3.90625e-06
+	alpha: 0.1991
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140370, d_loss: 0.1368369
+	Average valid Loss: 0.0825961, d_loss: 0.1479415
+	Average test  Loss: 0.0327456, d_loss: 0.1393190
+	training finished, time: 6.29 mins
+【Epoch: 34】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.28 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 3.90625e-07
+	learning rate: group 1 : 3.90625e-06
+	alpha: 0.1990
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140281, d_loss: 0.1367295
+	Average valid Loss: 0.0825408, d_loss: 0.1478962
+	Average test  Loss: 0.0327277, d_loss: 0.1392411
+	training finished, time: 6.27 mins
+【Epoch: 35】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.28 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 1.953125e-07
+	learning rate: group 1 : 1.953125e-06
+	alpha: 0.1990
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547, 0.19896766543388367]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140224, d_loss: 0.1366627
+	Average valid Loss: 0.0825117, d_loss: 0.1478304
+	Average test  Loss: 0.0327184, d_loss: 0.1391672
+	training finished, time: 6.27 mins
+【Epoch: 36】
+	train set evaluation finished, time: 6.20 mins
+	test set evaluation finished, time: 1.30 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 1.953125e-07
+	learning rate: group 1 : 1.953125e-06
+	alpha: 0.1989
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547, 0.19896766543388367, 0.19894272089004517]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140187, d_loss: 0.1366115
+	Average valid Loss: 0.0825069, d_loss: 0.1477864
+	Average test  Loss: 0.0327131, d_loss: 0.1391298
+	training finished, time: 6.29 mins
+【Epoch: 37】
+	train set evaluation finished, time: 6.16 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.56 mins
+	learning rate: group 0 : 9.765625e-08
+	learning rate: group 1 : 9.765625e-07
+	alpha: 0.1989
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547, 0.19896766543388367, 0.19894272089004517, 0.19891828298568726]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140157, d_loss: 0.1365702
+	Average valid Loss: 0.0824990, d_loss: 0.1477414
+	Average test  Loss: 0.0327077, d_loss: 0.1390827
+	training finished, time: 6.23 mins
+【Epoch: 38】
+	train set evaluation finished, time: 6.18 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.58 mins
+	learning rate: group 0 : 9.765625e-08
+	learning rate: group 1 : 9.765625e-07
+	alpha: 0.1989
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547, 0.19896766543388367, 0.19894272089004517, 0.19891828298568726, 0.19890546798706055]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140142, d_loss: 0.1365421
+	Average valid Loss: 0.0825016, d_loss: 0.1477068
+	Average test  Loss: 0.0327060, d_loss: 0.1390602
+	training finished, time: 6.24 mins
+【Epoch: 39】
+	train set evaluation finished, time: 6.12 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.57 mins
+	learning rate: group 0 : 4.8828125e-08
+	learning rate: group 1 : 4.8828125e-07
+	alpha: 0.1989
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547, 0.19896766543388367, 0.19894272089004517, 0.19891828298568726, 0.19890546798706055, 0.19889318943023682]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140127, d_loss: 0.1365162
+	Average valid Loss: 0.0825013, d_loss: 0.1476746
+	Average test  Loss: 0.0327032, d_loss: 0.1390310
+	training finished, time: 6.21 mins
+【Epoch: 40】
+	train set evaluation finished, time: 6.20 mins
+	test set evaluation finished, time: 1.29 mins
+	test set evaluation finished, time: 1.56 mins
+	learning rate: group 0 : 4.8828125e-08
+	learning rate: group 1 : 4.8828125e-07
+	alpha: 0.1989
+	alpha_list: [0.9734029769897461, 0.9516029357910156, 0.9192237854003906, 0.7823171019554138, 0.5871888995170593, 0.5252446532249451, 0.45649582147598267, 0.40170353651046753, 0.3563079833984375, 0.3360055685043335, 0.32202643156051636, 0.2965332865715027, 0.2908383011817932, 0.26938995718955994, 0.25783610343933105, 0.25754907727241516, 0.2448880672454834, 0.24119481444358826, 0.2343224287033081, 0.22599512338638306, 0.21992012858390808, 0.2115403115749359, 0.2090420126914978, 0.20580142736434937, 0.20418325066566467, 0.20252195000648499, 0.20153400301933289, 0.2006632685661316, 0.20014885067939758, 0.19971963763237, 0.19948804378509521, 0.19928082823753357, 0.19916805624961853, 0.19906938076019287, 0.1990164816379547, 0.19896766543388367, 0.19894272089004517, 0.19891828298568726, 0.19890546798706055, 0.19889318943023682, 0.19888705015182495]
+	       Train          |         Valid          |          Test       
+	TP:   599, FP:     1  |  TP:   128, FP:     4  |  TP:   129, FP:     1
+	FN:     0, TN:   598  |  FN:     0, TN:   124  |  FN:     0, TN:   128
+	Train -- Accu: 0.9992, Prec: 0.9983, Reca: 1.0000, Spec: 0.9983, F1Sc: 0.9992
+	Valid -- Accu: 0.9844, Prec: 0.9697, Reca: 1.0000, Spec: 0.9688, F1Sc: 0.9846
+	Test  -- Accu: 0.9961, Prec: 0.9923, Reca: 1.0000, Spec: 0.9922, F1Sc: 0.9961
+	Average train Loss: 0.0140119, d_loss: 0.1365051
+	Average valid Loss: 0.0824971, d_loss: 0.1476597
+	Average test  Loss: 0.0327020, d_loss: 0.1390200
+	training finished, time: 6.25 mins
+【Epoch: 41】
+	train set evaluation finished, time: 6.19 mins
+	test set evaluation finished, time: 1.28 mins

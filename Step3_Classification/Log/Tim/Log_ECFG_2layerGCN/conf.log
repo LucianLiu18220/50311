@@ -1,0 +1,655 @@
+
+current time             : 2024-08-10 03:57:03
+code path                : D:\Project\SmtCon\Classification\240806-SCcfg_graph\240806-SCcfg_graph-V10_6_C1\SCcfg_graph_V10_6_C1_main.py
+
+Binary Classification model training.
+*************Basic settings*************
+config                   : {
+    "logtest": false,
+    "seed": 1000,
+    "previous_dataset": false,
+    "previous_dataset_path": "",
+    "vul_ann": "Tim",
+    "vul": "time_manipulation",
+    "dataset_name": "SmartBugs",
+    "dataset_split": [
+        0.7,
+        0.15,
+        0.15
+    ],
+    "previous_model": false,
+    "previous_model_path": "",
+    "max_saved_model": 10,
+    "num_labels": 2,
+    "num_GCN": 2,
+    "d_node_feat": 1024,
+    "d_node_reshape": 128,
+    "d_output": 128,
+    "batch_size": 8,
+    "num_epochs": 50,
+    "wight_pen": 0.05,
+    "lr": 0.0001,
+    "optimizer": {
+        "weight_decay": 0.0001
+    },
+    "scheduler": {
+        "factor": 0.5,
+        "patience": 1,
+        "verbose": true,
+        "min_lr_rate": 1e-08
+    },
+    "criterion": {
+        "alpha": [
+            1,
+            1
+        ],
+        "gamma": 0,
+        "reduction": "sum"
+    }
+}
+dataset dir              : D:\Project\SmtCon_dataset\SmartContract\SmartBugs\Phase4\Multimodal_Fusion__time_manipulation_SCcfg_graph_ExprsNode
+
+*********Model hyper-parameters*********
+training device          : [device(type='cuda', index=0)]
+optimizer                : Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 0.0001
+    maximize: False
+    weight_decay: 0.0001
+)
+loss function            : CrossEntropyLoss
+
+************Model structure*************
+Model(
+  (linear_1): Linear(in_features=1024, out_features=128, bias=True)
+  (multi_GCN_layer): ModuleList(
+    (0): GCNConv(128, 128)
+    (1): GCNConv(128, 128)
+  )
+  (linear_2): Linear(in_features=128, out_features=2, bias=True)
+)
+Trainable params         : 164,482
+Non-trainable params     : 0
+Total params             : 164,482
+
+****************Training****************
+【Epoch: 00】
+	train set evaluation finished, time: 2.76 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.59 mins
+	       Train          |         Valid          |          Test       
+	TP:     0, FP:     0  |  TP:     0, FP:     0  |  TP:     0, FP:     0
+	FN:   616, TN:   616  |  FN:   132, TN:   132  |  FN:   133, TN:   133
+	Train -- Accu: 0.5000, Prec: 0.0000, Reca: 0.0000, Spec: 1.0000, F1Sc: 0.0000
+	Valid -- Accu: 0.5000, Prec: 0.0000, Reca: 0.0000, Spec: 1.0000, F1Sc: 0.0000
+	Test  -- Accu: 0.5000, Prec: 0.0000, Reca: 0.0000, Spec: 1.0000, F1Sc: 0.0000
+	Average train Loss: 0.8376998
+	Average valid Loss: 0.8336387
+	Average test  Loss: 0.8408746
+	training finished, time: 2.69 mins
+【Epoch: 01】
+	train set evaluation finished, time: 2.71 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.59 mins
+	       Train          |         Valid          |          Test       
+	TP:   614, FP:   313  |  TP:   131, FP:    67  |  TP:   133, FP:    67
+	FN:     2, TN:   303  |  FN:     1, TN:    65  |  FN:     0, TN:    66
+	Train -- Accu: 0.7443, Prec: 0.6624, Reca: 0.9968, Spec: 0.4919, F1Sc: 0.7959
+	Valid -- Accu: 0.7424, Prec: 0.6616, Reca: 0.9924, Spec: 0.4924, F1Sc: 0.7939
+	Test  -- Accu: 0.7481, Prec: 0.6650, Reca: 1.0000, Spec: 0.4962, F1Sc: 0.7988
+	Average train Loss: 0.5188744
+	Average valid Loss: 0.5353671
+	Average test  Loss: 0.4868105
+	training finished, time: 2.74 mins
+【Epoch: 02】
+	train set evaluation finished, time: 2.73 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   605, FP:   199  |  TP:   128, FP:    41  |  TP:   131, FP:    36
+	FN:    11, TN:   417  |  FN:     4, TN:    91  |  FN:     2, TN:    97
+	Train -- Accu: 0.8295, Prec: 0.7525, Reca: 0.9821, Spec: 0.6769, F1Sc: 0.8521
+	Valid -- Accu: 0.8295, Prec: 0.7574, Reca: 0.9697, Spec: 0.6894, F1Sc: 0.8505
+	Test  -- Accu: 0.8571, Prec: 0.7844, Reca: 0.9850, Spec: 0.7293, F1Sc: 0.8733
+	Average train Loss: 0.3847109
+	Average valid Loss: 0.4099936
+	Average test  Loss: 0.3458582
+	training finished, time: 2.73 mins
+【Epoch: 03】
+	train set evaluation finished, time: 2.62 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   609, FP:   187  |  TP:   129, FP:    39  |  TP:   131, FP:    31
+	FN:     7, TN:   429  |  FN:     3, TN:    93  |  FN:     2, TN:   102
+	Train -- Accu: 0.8425, Prec: 0.7651, Reca: 0.9886, Spec: 0.6964, F1Sc: 0.8626
+	Valid -- Accu: 0.8409, Prec: 0.7679, Reca: 0.9773, Spec: 0.7045, F1Sc: 0.8600
+	Test  -- Accu: 0.8759, Prec: 0.8086, Reca: 0.9850, Spec: 0.7669, F1Sc: 0.8881
+	Average train Loss: 0.3492364
+	Average valid Loss: 0.3951744
+	Average test  Loss: 0.3173814
+	training finished, time: 2.72 mins
+【Epoch: 04】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:   145  |  TP:   129, FP:    33  |  TP:   128, FP:    22
+	FN:     5, TN:   471  |  FN:     3, TN:    99  |  FN:     5, TN:   111
+	Train -- Accu: 0.8782, Prec: 0.8082, Reca: 0.9919, Spec: 0.7646, F1Sc: 0.8907
+	Valid -- Accu: 0.8636, Prec: 0.7963, Reca: 0.9773, Spec: 0.7500, F1Sc: 0.8776
+	Test  -- Accu: 0.8985, Prec: 0.8533, Reca: 0.9624, Spec: 0.8346, F1Sc: 0.9046
+	Average train Loss: 0.2833855
+	Average valid Loss: 0.3437074
+	Average test  Loss: 0.2702926
+	training finished, time: 2.74 mins
+【Epoch: 05】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   610, FP:   102  |  TP:   128, FP:    28  |  TP:   128, FP:    18
+	FN:     6, TN:   514  |  FN:     4, TN:   104  |  FN:     5, TN:   115
+	Train -- Accu: 0.9123, Prec: 0.8567, Reca: 0.9903, Spec: 0.8344, F1Sc: 0.9187
+	Valid -- Accu: 0.8788, Prec: 0.8205, Reca: 0.9697, Spec: 0.7879, F1Sc: 0.8889
+	Test  -- Accu: 0.9135, Prec: 0.8767, Reca: 0.9624, Spec: 0.8647, F1Sc: 0.9176
+	Average train Loss: 0.2250346
+	Average valid Loss: 0.2974254
+	Average test  Loss: 0.2310922
+	training finished, time: 2.74 mins
+【Epoch: 06】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   610, FP:    85  |  TP:   128, FP:    27  |  TP:   128, FP:    15
+	FN:     6, TN:   531  |  FN:     4, TN:   105  |  FN:     5, TN:   118
+	Train -- Accu: 0.9261, Prec: 0.8777, Reca: 0.9903, Spec: 0.8620, F1Sc: 0.9306
+	Valid -- Accu: 0.8826, Prec: 0.8258, Reca: 0.9697, Spec: 0.7955, F1Sc: 0.8920
+	Test  -- Accu: 0.9248, Prec: 0.8951, Reca: 0.9624, Spec: 0.8872, F1Sc: 0.9275
+	Average train Loss: 0.1953652
+	Average valid Loss: 0.2766756
+	Average test  Loss: 0.2212150
+	training finished, time: 2.74 mins
+【Epoch: 07】
+	train set evaluation finished, time: 2.64 mins
+	test set evaluation finished, time: 0.56 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   610, FP:    69  |  TP:   128, FP:    21  |  TP:   126, FP:    15
+	FN:     6, TN:   547  |  FN:     4, TN:   111  |  FN:     7, TN:   118
+	Train -- Accu: 0.9391, Prec: 0.8984, Reca: 0.9903, Spec: 0.8880, F1Sc: 0.9421
+	Valid -- Accu: 0.9053, Prec: 0.8591, Reca: 0.9697, Spec: 0.8409, F1Sc: 0.9110
+	Test  -- Accu: 0.9173, Prec: 0.8936, Reca: 0.9474, Spec: 0.8872, F1Sc: 0.9197
+	Average train Loss: 0.1656166
+	Average valid Loss: 0.2665746
+	Average test  Loss: 0.2146420
+	training finished, time: 2.75 mins
+【Epoch: 08】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:    68  |  TP:   129, FP:    22  |  TP:   125, FP:    15
+	FN:     5, TN:   548  |  FN:     3, TN:   110  |  FN:     8, TN:   118
+	Train -- Accu: 0.9407, Prec: 0.8999, Reca: 0.9919, Spec: 0.8896, F1Sc: 0.9436
+	Valid -- Accu: 0.9053, Prec: 0.8543, Reca: 0.9773, Spec: 0.8333, F1Sc: 0.9117
+	Test  -- Accu: 0.9135, Prec: 0.8929, Reca: 0.9398, Spec: 0.8872, F1Sc: 0.9158
+	Average train Loss: 0.1516842
+	Average valid Loss: 0.2594658
+	Average test  Loss: 0.2166773
+	training finished, time: 2.74 mins
+【Epoch: 09】
+	train set evaluation finished, time: 2.64 mins
+	test set evaluation finished, time: 0.56 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   610, FP:    59  |  TP:   128, FP:    20  |  TP:   125, FP:    14
+	FN:     6, TN:   557  |  FN:     4, TN:   112  |  FN:     8, TN:   119
+	Train -- Accu: 0.9472, Prec: 0.9118, Reca: 0.9903, Spec: 0.9042, F1Sc: 0.9494
+	Valid -- Accu: 0.9091, Prec: 0.8649, Reca: 0.9697, Spec: 0.8485, F1Sc: 0.9143
+	Test  -- Accu: 0.9173, Prec: 0.8993, Reca: 0.9398, Spec: 0.8947, F1Sc: 0.9191
+	Average train Loss: 0.1319240
+	Average valid Loss: 0.2526099
+	Average test  Loss: 0.2170063
+	training finished, time: 2.73 mins
+【Epoch: 10】
+	train set evaluation finished, time: 2.65 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   610, FP:    46  |  TP:   127, FP:    20  |  TP:   124, FP:    15
+	FN:     6, TN:   570  |  FN:     5, TN:   112  |  FN:     9, TN:   118
+	Train -- Accu: 0.9578, Prec: 0.9299, Reca: 0.9903, Spec: 0.9253, F1Sc: 0.9591
+	Valid -- Accu: 0.9053, Prec: 0.8639, Reca: 0.9621, Spec: 0.8485, F1Sc: 0.9104
+	Test  -- Accu: 0.9098, Prec: 0.8921, Reca: 0.9323, Spec: 0.8872, F1Sc: 0.9118
+	Average train Loss: 0.1176318
+	Average valid Loss: 0.2482507
+	Average test  Loss: 0.2172112
+	training finished, time: 2.73 mins
+【Epoch: 11】
+	train set evaluation finished, time: 2.62 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.59 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:    43  |  TP:   128, FP:    20  |  TP:   124, FP:    14
+	FN:     5, TN:   573  |  FN:     4, TN:   112  |  FN:     9, TN:   119
+	Train -- Accu: 0.9610, Prec: 0.9343, Reca: 0.9919, Spec: 0.9302, F1Sc: 0.9622
+	Valid -- Accu: 0.9091, Prec: 0.8649, Reca: 0.9697, Spec: 0.8485, F1Sc: 0.9143
+	Test  -- Accu: 0.9135, Prec: 0.8986, Reca: 0.9323, Spec: 0.8947, F1Sc: 0.9151
+	Average train Loss: 0.1080589
+	Average valid Loss: 0.2529522
+	Average test  Loss: 0.2185884
+	training finished, time: 2.74 mins
+【Epoch: 12】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.59 mins
+	       Train          |         Valid          |          Test       
+	TP:   609, FP:    36  |  TP:   127, FP:    18  |  TP:   123, FP:    11
+	FN:     7, TN:   580  |  FN:     5, TN:   114  |  FN:    10, TN:   122
+	Train -- Accu: 0.9651, Prec: 0.9442, Reca: 0.9886, Spec: 0.9416, F1Sc: 0.9659
+	Valid -- Accu: 0.9129, Prec: 0.8759, Reca: 0.9621, Spec: 0.8636, F1Sc: 0.9170
+	Test  -- Accu: 0.9211, Prec: 0.9179, Reca: 0.9248, Spec: 0.9173, F1Sc: 0.9213
+	Average train Loss: 0.0930489
+	Average valid Loss: 0.2425994
+	Average test  Loss: 0.2223355
+	training finished, time: 2.73 mins
+【Epoch: 13】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.61 mins
+	       Train          |         Valid          |          Test       
+	TP:   609, FP:    29  |  TP:   126, FP:    17  |  TP:   122, FP:     9
+	FN:     7, TN:   587  |  FN:     6, TN:   115  |  FN:    11, TN:   124
+	Train -- Accu: 0.9708, Prec: 0.9545, Reca: 0.9886, Spec: 0.9529, F1Sc: 0.9713
+	Valid -- Accu: 0.9129, Prec: 0.8811, Reca: 0.9545, Spec: 0.8712, F1Sc: 0.9164
+	Test  -- Accu: 0.9248, Prec: 0.9313, Reca: 0.9173, Spec: 0.9323, F1Sc: 0.9242
+	Average train Loss: 0.0823020
+	Average valid Loss: 0.2468216
+	Average test  Loss: 0.2323861
+	training finished, time: 2.72 mins
+【Epoch: 14】
+	train set evaluation finished, time: 2.64 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   610, FP:    35  |  TP:   127, FP:    19  |  TP:   123, FP:    11
+	FN:     6, TN:   581  |  FN:     5, TN:   113  |  FN:    10, TN:   122
+	Train -- Accu: 0.9667, Prec: 0.9457, Reca: 0.9903, Spec: 0.9432, F1Sc: 0.9675
+	Valid -- Accu: 0.9091, Prec: 0.8699, Reca: 0.9621, Spec: 0.8561, F1Sc: 0.9137
+	Test  -- Accu: 0.9211, Prec: 0.9179, Reca: 0.9248, Spec: 0.9173, F1Sc: 0.9213
+	Average train Loss: 0.0820938
+	Average valid Loss: 0.2566602
+	Average test  Loss: 0.2353799
+	training finished, time: 2.74 mins
+【Epoch: 15】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   608, FP:    15  |  TP:   120, FP:    11  |  TP:   117, FP:     7
+	FN:     8, TN:   601  |  FN:    12, TN:   121  |  FN:    16, TN:   126
+	Train -- Accu: 0.9813, Prec: 0.9759, Reca: 0.9870, Spec: 0.9756, F1Sc: 0.9814
+	Valid -- Accu: 0.9129, Prec: 0.9160, Reca: 0.9091, Spec: 0.9167, F1Sc: 0.9125
+	Test  -- Accu: 0.9135, Prec: 0.9435, Reca: 0.8797, Spec: 0.9474, F1Sc: 0.9105
+	Average train Loss: 0.0585172
+	Average valid Loss: 0.2355052
+	Average test  Loss: 0.2640292
+	training finished, time: 2.74 mins
+【Epoch: 16】
+	train set evaluation finished, time: 2.64 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   609, FP:    13  |  TP:   123, FP:    12  |  TP:   118, FP:     7
+	FN:     7, TN:   603  |  FN:     9, TN:   120  |  FN:    15, TN:   126
+	Train -- Accu: 0.9838, Prec: 0.9791, Reca: 0.9886, Spec: 0.9789, F1Sc: 0.9838
+	Valid -- Accu: 0.9205, Prec: 0.9111, Reca: 0.9318, Spec: 0.9091, F1Sc: 0.9213
+	Test  -- Accu: 0.9173, Prec: 0.9440, Reca: 0.8872, Spec: 0.9474, F1Sc: 0.9147
+	Average train Loss: 0.0532312
+	Average valid Loss: 0.2339832
+	Average test  Loss: 0.2637357
+	training finished, time: 2.75 mins
+【Epoch: 17】
+	train set evaluation finished, time: 2.63 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   609, FP:    13  |  TP:   123, FP:    12  |  TP:   118, FP:     8
+	FN:     7, TN:   603  |  FN:     9, TN:   120  |  FN:    15, TN:   125
+	Train -- Accu: 0.9838, Prec: 0.9791, Reca: 0.9886, Spec: 0.9789, F1Sc: 0.9838
+	Valid -- Accu: 0.9205, Prec: 0.9111, Reca: 0.9318, Spec: 0.9091, F1Sc: 0.9213
+	Test  -- Accu: 0.9135, Prec: 0.9365, Reca: 0.8872, Spec: 0.9398, F1Sc: 0.9112
+	Average train Loss: 0.0488902
+	Average valid Loss: 0.2364694
+	Average test  Loss: 0.2695122
+	training finished, time: 2.73 mins
+【Epoch: 18】
+	train set evaluation finished, time: 2.64 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:    12  |  TP:   122, FP:    13  |  TP:   118, FP:     9
+	FN:     5, TN:   604  |  FN:    10, TN:   119  |  FN:    15, TN:   124
+	Train -- Accu: 0.9862, Prec: 0.9807, Reca: 0.9919, Spec: 0.9805, F1Sc: 0.9863
+	Valid -- Accu: 0.9129, Prec: 0.9037, Reca: 0.9242, Spec: 0.9015, F1Sc: 0.9139
+	Test  -- Accu: 0.9098, Prec: 0.9291, Reca: 0.8872, Spec: 0.9323, F1Sc: 0.9077
+	Average train Loss: 0.0451716
+	Average valid Loss: 0.2415346
+	Average test  Loss: 0.2736782
+	training finished, time: 2.74 mins
+【Epoch: 19】
+	train set evaluation finished, time: 2.68 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:     6  |  TP:   122, FP:    12  |  TP:   118, FP:     9
+	FN:     5, TN:   610  |  FN:    10, TN:   120  |  FN:    15, TN:   124
+	Train -- Accu: 0.9911, Prec: 0.9903, Reca: 0.9919, Spec: 0.9903, F1Sc: 0.9911
+	Valid -- Accu: 0.9167, Prec: 0.9104, Reca: 0.9242, Spec: 0.9091, F1Sc: 0.9173
+	Test  -- Accu: 0.9098, Prec: 0.9291, Reca: 0.8872, Spec: 0.9323, F1Sc: 0.9077
+	Average train Loss: 0.0406950
+	Average valid Loss: 0.2329994
+	Average test  Loss: 0.2791186
+	training finished, time: 2.74 mins
+【Epoch: 20】
+	train set evaluation finished, time: 2.69 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:     6  |  TP:   122, FP:    13  |  TP:   118, FP:     8
+	FN:     5, TN:   610  |  FN:    10, TN:   119  |  FN:    15, TN:   125
+	Train -- Accu: 0.9911, Prec: 0.9903, Reca: 0.9919, Spec: 0.9903, F1Sc: 0.9911
+	Valid -- Accu: 0.9129, Prec: 0.9037, Reca: 0.9242, Spec: 0.9015, F1Sc: 0.9139
+	Test  -- Accu: 0.9135, Prec: 0.9365, Reca: 0.8872, Spec: 0.9398, F1Sc: 0.9112
+	Average train Loss: 0.0377007
+	Average valid Loss: 0.2375256
+	Average test  Loss: 0.2829704
+	training finished, time: 2.75 mins
+【Epoch: 21】
+	train set evaluation finished, time: 2.69 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   611, FP:     6  |  TP:   122, FP:    13  |  TP:   118, FP:     8
+	FN:     5, TN:   610  |  FN:    10, TN:   119  |  FN:    15, TN:   125
+	Train -- Accu: 0.9911, Prec: 0.9903, Reca: 0.9919, Spec: 0.9903, F1Sc: 0.9911
+	Valid -- Accu: 0.9129, Prec: 0.9037, Reca: 0.9242, Spec: 0.9015, F1Sc: 0.9139
+	Test  -- Accu: 0.9135, Prec: 0.9365, Reca: 0.8872, Spec: 0.9398, F1Sc: 0.9112
+	Average train Loss: 0.0352006
+	Average valid Loss: 0.2392024
+	Average test  Loss: 0.2846418
+	training finished, time: 2.74 mins
+【Epoch: 22】
+	train set evaluation finished, time: 2.69 mins
+	test set evaluation finished, time: 0.57 mins
+	test set evaluation finished, time: 0.60 mins
+	       Train          |         Valid          |          Test       
+	TP:   613, FP:     6  |  TP:   123, FP:    14  |  TP:   119, FP:     9
+	FN:     3, TN:   610  |  FN:     9, TN:   118  |  FN:    14, TN:   124
+	Train -- Accu: 0.9927, Prec: 0.9903, Reca: 0.9951, Spec: 0.9903, F1Sc: 0.9927
+	Valid -- Accu: 0.9129, Prec: 0.8978, Reca: 0.9318, Spec: 0.8939, F1Sc: 0.9145
+	Test  -- Accu: 0.9135, Prec: 0.9297, Reca: 0.8947, Spec: 0.9323, F1Sc: 0.9119
+	Average train Loss: 0.0318340
+	Average valid Loss: 0.2409170
+	Average test  Loss: 0.2795349
+	training finished, time: 2.73 mins
+【Epoch: 23】
+	train set evaluation finished, time: 2.69 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.61 mins
+	       Train          |         Valid          |          Test       
+	TP:   614, FP:     6  |  TP:   123, FP:    14  |  TP:   119, FP:     9
+	FN:     2, TN:   610  |  FN:     9, TN:   118  |  FN:    14, TN:   124
+	Train -- Accu: 0.9935, Prec: 0.9903, Reca: 0.9968, Spec: 0.9903, F1Sc: 0.9935
+	Valid -- Accu: 0.9129, Prec: 0.8978, Reca: 0.9318, Spec: 0.8939, F1Sc: 0.9145
+	Test  -- Accu: 0.9135, Prec: 0.9297, Reca: 0.8947, Spec: 0.9323, F1Sc: 0.9119
+	Average train Loss: 0.0301794
+	Average valid Loss: 0.2414017
+	Average test  Loss: 0.2801633
+	training finished, time: 2.81 mins
+【Epoch: 24】
+	train set evaluation finished, time: 2.76 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.62 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:    10  |  TP:   125, FP:    14  |  TP:   120, FP:     9
+	FN:     0, TN:   606  |  FN:     7, TN:   118  |  FN:    13, TN:   124
+	Train -- Accu: 0.9919, Prec: 0.9840, Reca: 1.0000, Spec: 0.9838, F1Sc: 0.9919
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9173, Prec: 0.9302, Reca: 0.9023, Spec: 0.9323, F1Sc: 0.9160
+	Average train Loss: 0.0296547
+	Average valid Loss: 0.2416496
+	Average test  Loss: 0.2745298
+	training finished, time: 2.82 mins
+【Epoch: 25】
+	train set evaluation finished, time: 2.76 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.63 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     8  |  TP:   124, FP:    14  |  TP:   120, FP:     9
+	FN:     0, TN:   608  |  FN:     8, TN:   118  |  FN:    13, TN:   124
+	Train -- Accu: 0.9935, Prec: 0.9872, Reca: 1.0000, Spec: 0.9870, F1Sc: 0.9935
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9302, Reca: 0.9023, Spec: 0.9323, F1Sc: 0.9160
+	Average train Loss: 0.0285946
+	Average valid Loss: 0.2406281
+	Average test  Loss: 0.2745817
+	training finished, time: 2.69 mins
+【Epoch: 26】
+	train set evaluation finished, time: 2.85 mins
+	test set evaluation finished, time: 0.60 mins
+	test set evaluation finished, time: 0.62 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     7  |  TP:   125, FP:    14  |  TP:   120, FP:     9
+	FN:     0, TN:   609  |  FN:     7, TN:   118  |  FN:    13, TN:   124
+	Train -- Accu: 0.9943, Prec: 0.9888, Reca: 1.0000, Spec: 0.9886, F1Sc: 0.9944
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9173, Prec: 0.9302, Reca: 0.9023, Spec: 0.9323, F1Sc: 0.9160
+	Average train Loss: 0.0279575
+	Average valid Loss: 0.2399379
+	Average test  Loss: 0.2724338
+	training finished, time: 2.69 mins
+【Epoch: 27】
+	train set evaluation finished, time: 2.88 mins
+	test set evaluation finished, time: 0.63 mins
+	test set evaluation finished, time: 0.65 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     7  |  TP:   125, FP:    14  |  TP:   120, FP:     9
+	FN:     0, TN:   609  |  FN:     7, TN:   118  |  FN:    13, TN:   124
+	Train -- Accu: 0.9943, Prec: 0.9888, Reca: 1.0000, Spec: 0.9886, F1Sc: 0.9944
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9173, Prec: 0.9302, Reca: 0.9023, Spec: 0.9323, F1Sc: 0.9160
+	Average train Loss: 0.0274043
+	Average valid Loss: 0.2393890
+	Average test  Loss: 0.2723582
+	training finished, time: 2.71 mins
+【Epoch: 28】
+	train set evaluation finished, time: 2.80 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.61 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     7  |  TP:   125, FP:    14  |  TP:   120, FP:     9
+	FN:     0, TN:   609  |  FN:     7, TN:   118  |  FN:    13, TN:   124
+	Train -- Accu: 0.9943, Prec: 0.9888, Reca: 1.0000, Spec: 0.9886, F1Sc: 0.9944
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9173, Prec: 0.9302, Reca: 0.9023, Spec: 0.9323, F1Sc: 0.9160
+	Average train Loss: 0.0266799
+	Average valid Loss: 0.2376596
+	Average test  Loss: 0.2734505
+	training finished, time: 2.72 mins
+【Epoch: 29】
+	train set evaluation finished, time: 2.85 mins
+	test set evaluation finished, time: 0.63 mins
+	test set evaluation finished, time: 0.70 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     6  |  TP:   125, FP:    14  |  TP:   120, FP:     9
+	FN:     0, TN:   610  |  FN:     7, TN:   118  |  FN:    13, TN:   124
+	Train -- Accu: 0.9951, Prec: 0.9904, Reca: 1.0000, Spec: 0.9903, F1Sc: 0.9952
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9173, Prec: 0.9302, Reca: 0.9023, Spec: 0.9323, F1Sc: 0.9160
+	Average train Loss: 0.0263878
+	Average valid Loss: 0.2375775
+	Average test  Loss: 0.2735335
+	training finished, time: 2.71 mins
+【Epoch: 30】
+	train set evaluation finished, time: 2.75 mins
+	test set evaluation finished, time: 0.63 mins
+	test set evaluation finished, time: 0.69 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     6  |  TP:   125, FP:    14  |  TP:   120, FP:     8
+	FN:     0, TN:   610  |  FN:     7, TN:   118  |  FN:    13, TN:   125
+	Train -- Accu: 0.9951, Prec: 0.9904, Reca: 1.0000, Spec: 0.9903, F1Sc: 0.9952
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9211, Prec: 0.9375, Reca: 0.9023, Spec: 0.9398, F1Sc: 0.9195
+	Average train Loss: 0.0259667
+	Average valid Loss: 0.2360379
+	Average test  Loss: 0.2752659
+	training finished, time: 2.72 mins
+【Epoch: 31】
+	train set evaluation finished, time: 2.85 mins
+	test set evaluation finished, time: 0.62 mins
+	test set evaluation finished, time: 0.64 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     6  |  TP:   125, FP:    14  |  TP:   120, FP:     8
+	FN:     0, TN:   610  |  FN:     7, TN:   118  |  FN:    13, TN:   125
+	Train -- Accu: 0.9951, Prec: 0.9904, Reca: 1.0000, Spec: 0.9903, F1Sc: 0.9952
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9211, Prec: 0.9375, Reca: 0.9023, Spec: 0.9398, F1Sc: 0.9195
+	Average train Loss: 0.0258013
+	Average valid Loss: 0.2358451
+	Average test  Loss: 0.2755104
+	training finished, time: 2.72 mins
+【Epoch: 32】
+	train set evaluation finished, time: 2.82 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.62 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     5  |  TP:   125, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   611  |  FN:     7, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9959, Prec: 0.9919, Reca: 1.0000, Spec: 0.9919, F1Sc: 0.9960
+	Valid -- Accu: 0.9205, Prec: 0.8993, Reca: 0.9470, Spec: 0.8939, F1Sc: 0.9225
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0256501
+	Average valid Loss: 0.2351935
+	Average test  Loss: 0.2764379
+	training finished, time: 2.70 mins
+【Epoch: 33】
+	train set evaluation finished, time: 2.77 mins
+	test set evaluation finished, time: 0.59 mins
+	test set evaluation finished, time: 0.62 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     5  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   611  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9959, Prec: 0.9919, Reca: 1.0000, Spec: 0.9919, F1Sc: 0.9960
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0255588
+	Average valid Loss: 0.2349654
+	Average test  Loss: 0.2767962
+	training finished, time: 2.70 mins
+【Epoch: 34】
+	train set evaluation finished, time: 2.72 mins
+	test set evaluation finished, time: 0.59 mins
+	test set evaluation finished, time: 0.63 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     4  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   612  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9968, Prec: 0.9935, Reca: 1.0000, Spec: 0.9935, F1Sc: 0.9968
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0255030
+	Average valid Loss: 0.2347233
+	Average test  Loss: 0.2772297
+	training finished, time: 2.73 mins
+【Epoch: 35】
+	train set evaluation finished, time: 2.89 mins
+	test set evaluation finished, time: 0.60 mins
+	test set evaluation finished, time: 0.61 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     4  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   612  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9968, Prec: 0.9935, Reca: 1.0000, Spec: 0.9935, F1Sc: 0.9968
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0254590
+	Average valid Loss: 0.2345790
+	Average test  Loss: 0.2774855
+	training finished, time: 2.71 mins
+【Epoch: 36】
+	train set evaluation finished, time: 2.82 mins
+	test set evaluation finished, time: 0.60 mins
+	test set evaluation finished, time: 0.61 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     4  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   612  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9968, Prec: 0.9935, Reca: 1.0000, Spec: 0.9935, F1Sc: 0.9968
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0254354
+	Average valid Loss: 0.2344784
+	Average test  Loss: 0.2776793
+	training finished, time: 2.73 mins
+【Epoch: 37】
+	train set evaluation finished, time: 2.81 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.61 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     3  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   613  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9976, Prec: 0.9952, Reca: 1.0000, Spec: 0.9951, F1Sc: 0.9976
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0254141
+	Average valid Loss: 0.2343983
+	Average test  Loss: 0.2778292
+	training finished, time: 2.70 mins
+【Epoch: 38】
+	train set evaluation finished, time: 2.83 mins
+	test set evaluation finished, time: 0.59 mins
+	test set evaluation finished, time: 0.66 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     3  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   613  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9976, Prec: 0.9952, Reca: 1.0000, Spec: 0.9951, F1Sc: 0.9976
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0254031
+	Average valid Loss: 0.2343483
+	Average test  Loss: 0.2779294
+	training finished, time: 2.69 mins
+【Epoch: 39】
+	train set evaluation finished, time: 2.90 mins
+	test set evaluation finished, time: 0.62 mins
+	test set evaluation finished, time: 0.69 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     3  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   613  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9976, Prec: 0.9952, Reca: 1.0000, Spec: 0.9951, F1Sc: 0.9976
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0253928
+	Average valid Loss: 0.2343041
+	Average test  Loss: 0.2780119
+	training finished, time: 2.68 mins
+【Epoch: 40】
+	train set evaluation finished, time: 2.78 mins
+	test set evaluation finished, time: 0.58 mins
+	test set evaluation finished, time: 0.63 mins
+	       Train          |         Valid          |          Test       
+	TP:   616, FP:     3  |  TP:   124, FP:    14  |  TP:   119, FP:     8
+	FN:     0, TN:   613  |  FN:     8, TN:   118  |  FN:    14, TN:   125
+	Train -- Accu: 0.9976, Prec: 0.9952, Reca: 1.0000, Spec: 0.9951, F1Sc: 0.9976
+	Valid -- Accu: 0.9167, Prec: 0.8986, Reca: 0.9394, Spec: 0.8939, F1Sc: 0.9185
+	Test  -- Accu: 0.9173, Prec: 0.9370, Reca: 0.8947, Spec: 0.9398, F1Sc: 0.9154
+	Average train Loss: 0.0253872
+	Average valid Loss: 0.2342724
+	Average test  Loss: 0.2780733
+	training finished, time: 2.68 mins
+【Epoch: 41】
